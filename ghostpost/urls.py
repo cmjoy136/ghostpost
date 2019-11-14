@@ -18,10 +18,15 @@ from django.urls import path
 from ghostpost import views
 from ghostpost.models import Post
 
-admin.site.register(Post)
+# admin.site.register(Post)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='homepage'),
-    path('postsubmit/', views.PostAdd, name='postsubmit')
+    path('postsubmit/', views.PostAdd, name='postsubmit'),
+    path('boasts/', views.boast, name='boasts' ),
+    path('roasts/', views.roast, name='roasts'),
+    path('likepost/<int:id>/', views.likePost, name='likey'),
+    path('dislikepost/<int:id>/', views.dislikePost, name='dislikey'),
+    path('votecount/', views.voteFilter, name='votes'),
 ]

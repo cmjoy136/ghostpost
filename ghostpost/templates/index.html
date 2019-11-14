@@ -1,10 +1,20 @@
 <h1>Boast or Roast</h1>
+<a href="/postsubmit/"><button>Make Your Own</button></a>
 
-{{ posts }}
+<!-- {{ posts }} -->
+<p>
+    Sort by: 
+    <a href="/"><button>All</button></a>
+    <a href="/boasts/"><button>Boasts</button></a>
+    <a href="/roasts/"><button>Roasts</button></a>
+    <a href="/votecount/"><button>Votes</button></a>
+
+
+</p>
 
 <ul>
     {% for post in posts %}
-        <li>{{ post.content}} upvotes:{{ post.upvote}} downvotes: {{ post.downvote}}</li>
+        <li>{{ post.content}} <a href="/likepost/{{ post.id }}/"><button> upvotes: </button></a>{{ post.upvote}} <a href="/dislikepost/{{ post.id}}/"><button> downvotes: </button></a>{{ post.downvote}}</li>
             <ul>
                 <li>posted {{ post.datetime }}</li>
             </ul>   
